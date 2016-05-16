@@ -1,0 +1,26 @@
+body {
+    padding-top: 50px;
+}
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+.navbar{
+    background-color:whitesmoke;
+    border-bottom-color: whitesmoke;
+}
+.navbar li{
+    color: darkgray;
+}
+#left-contends {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#left-contends>li {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+}
