@@ -3,6 +3,7 @@ package kr.domaindriven;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.Task;
 import kr.domaindriven.model.Worker;
+import kr.domaindriven.model.fake.FakeModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -69,5 +70,12 @@ public class AppsController {
         //!.dummy data
 
         return "index";
+    }
+
+    @RequestMapping("/adding_Instructor")
+    public String addInstructor(Model model){
+        FakeModel fakeModels = new FakeModel();
+        model.addAttribute("fakeModels",fakeModels);
+        return "addingInstructor";
     }
 }
