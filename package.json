@@ -1,0 +1,25 @@
+{
+  "name": "lacs",
+  "version": "1.0.0",
+  "description": "LA-project Community System.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DomainDriven/lacs.git"
+  },
+  "keywords": [
+    "DomainDriven",
+    "LA-project",
+    "Community",
+    "System."
+  ],
+  "author": "Donghoon Lee, Jaeyeol Ahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DomainDriven/lacs/issues"
+  },
+  "homepage": "https://github.com/DomainDriven/lacs#readme",
+}
