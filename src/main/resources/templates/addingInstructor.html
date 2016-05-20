@@ -8,12 +8,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/starter-template.css" />
-    <link rel="stylesheet" href="css/styles.css"></link>
-
+    <link rel="stylesheet" href="/static/css/starter-template.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="js/myJs.js"></script>
+    <script src="/static/js/myJs.js"></script>
 
 </head>
 <body>
@@ -27,12 +26,12 @@
     </div>
 </div>
 <div class="container">
-    <form id="form" class="form">
+    <form id="form" th:action="@{/adding_Instructor}" class="form" method="post">
         <table class="table table-striped">
             <tr>
                 <th>강사후보자명</th>
                 <td>
-                    <select name="selectBox" class="form-control" onChange="getSelectValue(this.form)">
+                    <select name="instructorName" id="instructorName" class="form-control" onChange="getSelectValue(this.form)">
                         <!-- <option th:each="i, ${fakeModels.instructors}" th:value="${i}" th:text="${i}"></option>-->
                         <option selected="selected" value="non" >강사를 선택해주세요.</option>
                         <option th:value="${fakeModels.instructors[0].getName()}"
@@ -52,7 +51,7 @@
             <tr>
                 <th>연락처</th>
                 <td>
-                    <input type="text" name="phoneNumber"/>
+                    <input type="text" name="instructorPhoneNum" id="instructorPhoneNum"/>
                         <!-- <option th:each="i, ${fakeModels.instructors}" th:value="${i}" th:text="${i}"></option>-->
                       <div class="hiddenDiv">
                         <p id="p1" th:text="${fakeModels.instructors[0].getPhoneNumber()}"/>
@@ -67,30 +66,31 @@
             </tr>
             <tr>
                 <th>연락담당자</th>
-                <td><input/></td>
+                <td><input type="text" name="worker" id="worker"/></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
             <tr>
                 <th>강의주제</th>
-                <td><input/></td>
+                <td><input type="text" name="subject" id="subject"/></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
             <tr>
                 <th>선호날짜</th>
-                <td><input/></td>
+                <td><input type="text" name="date" id="date"/></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
             <tr>
                 <th>계좌번호</th>
-                <td><input/></td>
+                <td><input type="text" name="account" id="account"/></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
             <tr>
                 <th>발표자료</th>
-                <td><input/></td>
+                <td><input type="text" name="file" id="file"/></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
         </table>
+        <input type="submit" />
     </form>
 </div>
 

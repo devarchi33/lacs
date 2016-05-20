@@ -6,7 +6,9 @@ import kr.domaindriven.model.Worker;
 import kr.domaindriven.model.fake.FakeModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,10 +74,25 @@ public class AppsController {
         return "index";
     }
 
-    @RequestMapping("/adding_Instructor")
+    @RequestMapping(value = "/adding_Instructor",method = RequestMethod.GET)
     public String addInstructor(Model model){
         FakeModel fakeModels = new FakeModel();
         model.addAttribute("fakeModels",fakeModels);
         return "addingInstructor";
+    }
+
+    @RequestMapping(value = "/adding_Instructor",method = RequestMethod.POST)
+    public String addInstructor(@ModelAttribute FakeModel fakeModel, Model model){
+        FakeModel fakeModels = fakeModel;
+        System.out.println(fakeModel.getAccount());
+        System.out.println(fakeModel.getWorker());
+        model.addAttribute("fakeModels",fakeModels);
+        return "seminarInstructor";
+    }
+
+    @RequestMapping("seminarInstructor")
+    public String seminarInstructor(@ModelAttribute FakeModel fakeModel, Model model){
+        model.addAttribute("fakeModels",fakeModel);
+        return "seminarInstructor";
     }
 }
