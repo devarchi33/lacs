@@ -31,19 +31,14 @@
             <tr>
                 <th>강사후보자명</th>
                 <td>
-                    <select name="instructorName" id="instructorName" class="form-control" onChange="getSelectValue(this.form)">
+                    <select  name="selectedInstructor" id="selectedInstructor" class="form-control" onChange="getSelectValue()">
                         <!-- <option th:each="i, ${fakeModels.instructors}" th:value="${i}" th:text="${i}"></option>-->
                         <option selected="selected" value="non" >강사를 선택해주세요.</option>
-                        <option th:value="${fakeModels.instructors[0].getName()}"
-                                th:text="${fakeModels.instructors[0].getName()}"></option>
-                        <option th:value="${fakeModels.instructors[1].getName()}"
-                                th:text="${fakeModels.instructors[1].getName()}"></option>
-                        <option th:value="${fakeModels.instructors[2].getName()}"
-                                th:text="${fakeModels.instructors[2].getName()}"></option>
-                        <option th:value="${fakeModels.instructors[3].getName()}"
-                                th:text="${fakeModels.instructors[3].getName()}"></option>
-                        <option th:value="${fakeModels.instructors[4].getName()}"
-                                th:text="${fakeModels.instructors[4].getName()}"></option>
+                        <!-- 모델로 넘어온 instructors 를 다음과 같이 반복문으로 사용한다 th:each="instructor: ${selectingInstrouctor.instructors}"
+                         html 태그 시작 부에 th:each="인자:${클래스} 를 넣어주며 해당 html 태그 끝 까지 Scope가 유지된다.
+                         아래의 예는 <option>부터 </option>까지가 반복의 범위이다.
+                        -->
+                        <option th:each="instructor: ${selectingInstrouctor.instructors}" th:id="${instructor.getMail()}" th:value="${instructor.getName()}" th:text="${instructor.getName()}"></option>
                     </select>
                 </td>
                 <td><span class="label label-success">Success</span></td>
@@ -51,14 +46,11 @@
             <tr>
                 <th>연락처</th>
                 <td>
-                    <input type="text" name="instructorPhoneNum" id="instructorPhoneNum"/>
+                    <input type="text" name="phone" id="phone"/>
                         <!-- <option th:each="i, ${fakeModels.instructors}" th:value="${i}" th:text="${i}"></option>-->
                       <div class="hiddenDiv">
-                        <p id="p1" th:text="${fakeModels.instructors[0].getPhoneNumber()}"/>
-                        <p id="p2" th:text="${fakeModels.instructors[1].getPhoneNumber()}"/>
-                        <p id="p3" th:text="${fakeModels.instructors[2].getPhoneNumber()}"/>
-                        <p id="p4" th:text="${fakeModels.instructors[3].getPhoneNumber()}"/>
-                        <p id="p5" th:text="${fakeModels.instructors[4].getPhoneNumber()}"/>
+                          <p th:each="instructor: ${selectingInstrouctor.instructors}" th:id="${'pn'+instructor.getMail()}" th:value="${instructor.getPhoneNumber()}" th:text="${instructor.getPhoneNumber()}"></p>
+                          <p th:each="instructor: ${selectingInstrouctor.instructors}" th:id="${instructor.getMail()}" th:value="${instructor.getMail()}" th:text="${instructor.getMail()}"></p>
                       </div>
 
                 </td>
@@ -66,7 +58,11 @@
             </tr>
             <tr>
                 <th>연락담당자</th>
-                <td><input type="text" name="worker" id="worker"/></td>
+                <td><select  name="selectedWorker" id="selectedWorker" class="form-control">
+                    <!-- <option th:each="i, ${fakeModels.instructors}" th:value="${i}" th:text="${i}"></option>-->
+                    <option selected="selected" value="non" >연락담당자를 선택해주세요.</option>
+                    <option th:each="worker: ${selectingInstrouctor.workers}" th:id="${worker.getName()}" th:value="${worker.getName()}" th:text="${worker.getName()}"></option>
+                </select></td>
                 <td><span class="label label-success">Success</span></td>
             </tr>
             <tr>

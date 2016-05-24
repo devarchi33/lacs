@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by donghoon on 2016. 5. 19..
+ * 이 클래스는 세미나를 위해 만들었으며, 각 세미나는 하나 이상의 task 를 가지고 있음.
  */
 public class Seminar {
 

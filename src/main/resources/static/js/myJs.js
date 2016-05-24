@@ -3,9 +3,10 @@
  */
 
 //선택한 값 넘겨주기
-function getSelectValue(frm)
+function getSelectValue()
 {
-    var InstructorIndex = frm.instructorName.selectedIndex;
-    /*alert(document.getElementById('p'+InstructorIndex).innerHTML);*/
-    frm.instructorPhoneNum.value = document.getElementById('p'+InstructorIndex).innerHTML;
+    var target = document.getElementById("selectedInstructor");
+    var selectedInstructorId= target.options[target.selectedIndex].id;
+    alert(selectedInstructorId);
+    document.getElementById("phone").value = document.getElementById("pn"+ selectedInstructorId).innerHTML;
 }

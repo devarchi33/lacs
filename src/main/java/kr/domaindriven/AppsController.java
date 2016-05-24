@@ -1,9 +1,10 @@
 package kr.domaindriven;
 
+import kr.domaindriven.model.SelectingInstrouctor;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.Task;
+import kr.domaindriven.model.TestModel.TestModel;
 import kr.domaindriven.model.Worker;
-import kr.domaindriven.model.fake.FakeModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -76,23 +77,17 @@ public class AppsController {
 
     @RequestMapping(value = "/adding_Instructor",method = RequestMethod.GET)
     public String addInstructor(Model model){
-        FakeModel fakeModels = new FakeModel();
-        model.addAttribute("fakeModels",fakeModels);
+        TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
+        SelectingInstrouctor selectingInstrouctor = new SelectingInstrouctor(1,"1회 세미나",testModel.getWorkers(),testModel.getInstructors());
+        model.addAttribute("selectingInstrouctor",selectingInstrouctor);
         return "addingInstructor";
     }
 
     @RequestMapping(value = "/adding_Instructor",method = RequestMethod.POST)
-    public String addInstructor(@ModelAttribute FakeModel fakeModel, Model model){
-        FakeModel fakeModels = fakeModel;
-        System.out.println(fakeModel.getAccount());
-        System.out.println(fakeModel.getWorker());
-        model.addAttribute("fakeModels",fakeModels);
+    public String addInstructor(@ModelAttribute SelectingInstrouctor selectingInstrouctor, Model model){
+        SelectingInstrouctor selectedInstrouctor = selectingInstrouctor;
+        model.addAttribute("selectingInstrouctor",selectedInstrouctor);
         return "seminarInstructor";
     }
 
-    @RequestMapping("seminarInstructor")
-    public String seminarInstructor(@ModelAttribute FakeModel fakeModel, Model model){
-        model.addAttribute("fakeModels",fakeModel);
-        return "seminarInstructor";
-    }
 }

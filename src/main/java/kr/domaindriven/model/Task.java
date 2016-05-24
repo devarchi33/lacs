@@ -4,18 +4,22 @@ import java.util.List;
 
 /**
  * Created by donghoon on 2016. 5. 19..
+ * 이 클래스는 각 작업을 나타내기 위해 만들었음.
+ * 각 작업은 하나 이상의 Worker를 포함하ㅅ
  */
 public class Task {
 
     private long id;
-    private String name;
+    private String taskName;
     private List<Worker> workers;
     private int progress = 0;
     private boolean isCompleted = false;
 
-    public Task(long id, String name, List<Worker> workers) {
+    public Task(){}
+
+    public Task(long id, String taskName, List<Worker> workers) {
         this.id = id;
-        this.name = name;
+        taskName = taskName;
         this.workers = workers;
     }
 
@@ -28,11 +32,11 @@ public class Task {
     }
 
     public String getName() {
-        return name;
+        return taskName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String taskName) {
+        this.taskName = taskName;
     }
 
     public List<Worker> getWorkers() {

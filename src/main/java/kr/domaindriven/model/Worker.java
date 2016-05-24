@@ -2,6 +2,7 @@ package kr.domaindriven.model;
 
 /**
  * Created by donghoon on 2016. 5. 19..
+ * 이 클래스는 작업별 작업 진행자를 나타냄
  */
 public class Worker {
 
