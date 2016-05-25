@@ -1,4 +1,4 @@
-package kr.domaindriven;
+package kr.domaindriven.web;
 
 import kr.domaindriven.model.SelectingInstrouctor;
 import kr.domaindriven.model.Seminar;

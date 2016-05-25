@@ -1,13 +1,21 @@
 package kr.domaindriven.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.List;
 
 /**
  * Created by donghoon on 2016. 5. 19..
+ * Modified by donghoon on 2016. 5. 26..
+ * <p/>
  * 이 클래스는 세미나를 위해 만들었으며, 각 세미나는 하나 이상의 task 를 가지고 있음.
+ * MongoDB seminars collection 에 저장.
  */
+@Document(collection = "seminars")
 public class Seminar {
 
+    @Id
     private long id;
     private String name;
     private String state = "NOW";
