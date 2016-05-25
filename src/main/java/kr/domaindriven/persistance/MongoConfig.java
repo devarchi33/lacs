@@ -14,6 +14,8 @@ import java.util.Map;
 
 /**
  * Created by donghoon on 2016. 5. 26..
+ * <p/>
+ * MongoDB 설정 클래스.
  */
 @Configuration
 @EnableMongoRepositories
@@ -27,7 +29,12 @@ public class MongoConfig {
         return new MongoClient(getMongoInfo("host"), Integer.parseInt(getMongoInfo("port")));
     }
 
-    // ---------------------------------------------------- MongoTemplate
+    /**
+     * DB 작업을 위한 메인 객체인 MongoTemplate 을 bean 으로 등록.
+     *
+     * @return
+     * @throws Exception
+     */
     @Bean
     public MongoTemplate mongoTemplate() throws Exception {
         MongoTemplate mongoTemplate = new MongoTemplate(mongo(), getMongoInfo("database"));

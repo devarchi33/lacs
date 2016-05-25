@@ -5,6 +5,8 @@ import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.Task;
 import kr.domaindriven.model.TestModel.TestModel;
 import kr.domaindriven.model.Worker;
+import kr.domaindriven.service.SeminarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +21,10 @@ import java.util.List;
  */
 @Controller
 public class AppsController {
+
+    @Autowired
+    private SeminarService smService;
+
     @RequestMapping("/")
     public String index(Model model) {
 
@@ -72,21 +78,24 @@ public class AppsController {
         model.addAttribute("seminars", seminars);
         //!.dummy data
 
+        Long smCount = smService.count();
+        model.addAttribute("smCount", smCount);
+
         return "index";
     }
 
-    @RequestMapping(value = "/adding_Instructor",method = RequestMethod.GET)
-    public String addInstructor(Model model){
+    @RequestMapping(value = "/adding_Instructor", method = RequestMethod.GET)
+    public String addInstructor(Model model) {
         TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
-        SelectingInstrouctor selectingInstrouctor = new SelectingInstrouctor(1,"1회 세미나",testModel.getWorkers(),testModel.getInstructors());
-        model.addAttribute("selectingInstrouctor",selectingInstrouctor);
+        SelectingInstrouctor selectingInstrouctor = new SelectingInstrouctor(1, "1회 세미나", testModel.getWorkers(), testModel.getInstructors());
+        model.addAttribute("selectingInstrouctor", selectingInstrouctor);
         return "addingInstructor";
     }
 
-    @RequestMapping(value = "/adding_Instructor",method = RequestMethod.POST)
-    public String addInstructor(@ModelAttribute SelectingInstrouctor selectingInstrouctor, Model model){
+    @RequestMapping(value = "/adding_Instructor", method = RequestMethod.POST)
+    public String addInstructor(@ModelAttribute SelectingInstrouctor selectingInstrouctor, Model model) {
         SelectingInstrouctor selectedInstrouctor = selectingInstrouctor;
-        model.addAttribute("selectingInstrouctor",selectedInstrouctor);
+        model.addAttribute("selectingInstrouctor", selectedInstrouctor);
         return "seminarInstructor";
     }
 
