@@ -6,6 +6,7 @@ package kr.domaindriven.model;
  */
 public class Instructor {
 
+    private Long id=0L;
     private String name;
     private String phoneNumber;
     private String mail;
@@ -16,11 +17,13 @@ public class Instructor {
         this.phoneNumber = phoneNumber;
         this.mail = mail;
         this.account = "None";
+        id++;
     }
 
     public Instructor(String name, String phoneNumber, String mail, String account) {
         this(name, phoneNumber, mail);
         this.account = account;
+        id++;
     }
 
     public String getName() {
