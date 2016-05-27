@@ -1,7 +1,5 @@
 package kr.domaindriven.model;
 
-import com.sun.org.apache.bcel.internal.generic.Select;
-
 import java.util.List;
 
 /**
@@ -9,11 +7,11 @@ import java.util.List;
  * 강사섭외 작업을 위한 클래스.
  * Task를 상속받으며 강사섭외작업에 대한 정보를 제공한다.
  */
-public class SelectingInstrouctor extends Task {
+public class SelectedInstrouctor extends Task {
 
     private List<Instructor> instructors;
 
-   //// TODO: 2016-05-24 아래 세가지 멤버는 리팩토링요구됨 - JERRY
+    //// TODO: 2016-05-24 아래 세가지 멤버는 리팩토링요구됨 - JERRY
     private String selectedInstructor;
     private String selectedWorker;
     private String account;
@@ -24,12 +22,20 @@ public class SelectingInstrouctor extends Task {
     private String date;
     private String file;
 
-    public SelectingInstrouctor(){
+    public SelectedInstrouctor() {
         super();
     }
 
-    public SelectingInstrouctor(long id, String name, List<Worker> workers, List<Instructor> instructors) {
-        super(id, name, workers);
+    public SelectedInstrouctor(String name, List<Worker> workers, List<Instructor> instructors) {
+        super(name, workers);
+        this.instructors = instructors;
+    }
+
+    public List<Instructor> getInstructors() {
+        return instructors;
+    }
+
+    public void setInstructors(List<Instructor> instructors) {
         this.instructors = instructors;
     }
 
@@ -40,6 +46,7 @@ public class SelectingInstrouctor extends Task {
     public void setAccount(String account) {
         this.account = account;
     }
+
     public String getSelectedWorker() {
         return selectedWorker;
     }
@@ -47,6 +54,7 @@ public class SelectingInstrouctor extends Task {
     public void setSelectedWorker(String selectedWorker) {
         this.selectedWorker = selectedWorker;
     }
+
     public String getPhone() {
         return phone;
     }
@@ -54,6 +62,7 @@ public class SelectingInstrouctor extends Task {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public String getFile() {
         return file;
     }
@@ -84,15 +93,6 @@ public class SelectingInstrouctor extends Task {
 
     public void setSelectedInstructor(String selectedInstructor) {
         this.selectedInstructor = selectedInstructor;
-    }
-
-
-    public List<Instructor> getInstructors() {
-        return instructors;
-    }
-
-    public void setInstructors(List<Instructor> instructors) {
-        this.instructors = instructors;
     }
 
 }

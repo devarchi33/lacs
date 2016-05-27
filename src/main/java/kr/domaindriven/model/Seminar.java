@@ -3,6 +3,7 @@ package kr.domaindriven.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,24 +16,46 @@ import java.util.List;
 @Document(collection = "seminars")
 public class Seminar {
 
+    /**
+     * mongodb objectId 이용시 unique key 를 자동생성 값으로 사용할 것으로 예상되므로 setter 를 삭제함.
+     */
     @Id
-    private long id;
+    private String id;
     private String title;
-    private String state = "NOW";
+    private boolean isCompleted = false;
     private List<Task> tasks;
 
-    public Seminar(long id, String title, List<Task> tasks) {
-        this.id = id;
+    /**
+     * 기본 태스크를 세미나 객체가 생성될 때 만들어 준다.
+     * 기본 테스크 : 강사 선정, 장소예약, 포스터 제작, 홍보, 회고.
+     *
+     * @param title
+     */
+    public Seminar(String title) {
         this.title = title;
-        this.tasks = tasks;
+
+        Task selectInstructor = new Task(LacsCnst.SELECT_INSTRUCTOR);
+        Task reservePlace = new Task(LacsCnst.RESERVE_PLACE);
+        Task makePoster = new Task(LacsCnst.MAKE_POSTER);
+        Task registerSeminar = new Task(LacsCnst.REGISTER_SEMINAR);
+        Task promostion = new Task(LacsCnst.PROMOTION);
+        Task rememberance = new Task(LacsCnst.REMEMBERANCE);
+
+        /**
+         * 고정적 으로 예상되는 task 들을 Seminar 생성시 할당한다.
+         */
+        List<Task> taskMap = new ArrayList<Task>();
+        taskMap.add(selectInstructor);
+        taskMap.add(reservePlace);
+        taskMap.add(makePoster);
+        taskMap.add(registerSeminar);
+        taskMap.add(promostion);
+        taskMap.add(rememberance);
+        this.tasks = taskMap;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -43,12 +66,12 @@ public class Seminar {
         this.title = title;
     }
 
-    public String getState() {
-        return state;
+    public boolean isCompleted() {
+        return isCompleted;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
 
     public List<Task> getTasks() {

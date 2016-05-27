@@ -5,37 +5,51 @@ import java.util.List;
 /**
  * Created by donghoon on 2016. 5. 19..
  * 이 클래스는 각 작업을 나타내기 위해 만들었음.
- * 각 작업은 하나 이상의 Worker를 포함하ㅅ
+ * 각 작업은 하나 이상의 Worker를 포함한다.
  */
 public class Task {
 
-    private long id;
+    /**
+     * seminars document 에 list 형태로 저장되므로 id 필드는 향후 삭제가 필요해 보임.
+     */
     private String taskName;
     private List<Worker> workers;
+
+    /**
+     * 테스크가 처음 생성된 시점에서 progress 는 0 이므로 default 0 으로 할당함.
+     */
     private int progress = 0;
+    /**
+     * 테스크가 처음 생성된 시점에서 미완결 상태이므로 isCompleted default 를 false 로 할당함.
+     */
     private boolean isCompleted = false;
 
-    public Task(){}
+    public Task() {
+    }
 
-    public Task(long id, String taskName, List<Worker> workers) {
-        this.id = id;
-        taskName = taskName;
+    /**
+     * 테스크의 이름을 default 인자로 설정함.
+     *
+     * @param taskName
+     */
+    public Task(String taskName) {
+        this.taskName = taskName;
+    }
+
+    /**
+     * @param taskName
+     * @param workers
+     */
+    public Task(String taskName, List<Worker> workers) {
+        this.taskName = taskName;
         this.workers = workers;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
+    public String getTaskName() {
         return taskName;
     }
 
-    public void setName(String taskName) {
+    public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
 
