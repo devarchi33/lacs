@@ -17,13 +17,13 @@ public class Seminar {
 
     @Id
     private long id;
-    private String name;
+    private String title;
     private String state = "NOW";
     private List<Task> tasks;
 
-    public Seminar(long id, String name, List<Task> tasks) {
+    public Seminar(long id, String title, List<Task> tasks) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.tasks = tasks;
     }
 
@@ -35,12 +35,12 @@ public class Seminar {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getState() {
