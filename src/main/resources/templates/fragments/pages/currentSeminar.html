@@ -2,81 +2,78 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 </head>
-<body>
-<div class="container" th:fragment="currentSeminar">
-    <section class="content-header">
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> 홈</a></li>
-            <li class="active">세미나</li>
-        </ol>
-    </section>
-    <section class="content">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        Seminar Title <span class="badge">Seminar State</span>
-                    </a>
-                </div>
-                <form onsubmit="return false">
-                    <div class="table">
-                        <div class="table-row-group">
-                            <div class="table-row">
-                                <div class="table-cell" style="width: 60px; vertical-align: top;">
-                                    <button type="submit" class="btn btn-default pull-right"
-                                            data-toggle="modal" data-target="#modify-seminar">세미나 수정
-                                    </button>
-                                </div>
+<body th:fragment="currentSeminar">
+<section class="content-header">
+    <ol class="breadcrumb">
+        <li class="active"><a th:href="@{/}" href="/"><i class="fa fa-dashboard"></i> 홈</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="list-group">
+                <a href="#" class="list-group-item">
+                    Seminar Title <span class="badge">Seminar State</span>
+                </a>
+            </div>
+            <form onsubmit="return false">
+                <div class="table">
+                    <div class="table-row-group">
+                        <div class="table-row">
+                            <div class="table-cell" style="width: 60px; vertical-align: top;">
+                                <button type="submit" class="btn btn-default pull-right"
+                                        data-toggle="modal" data-target="#modify-seminar">세미나 수정
+                                </button>
                             </div>
                         </div>
                     </div>
-                </form>
-                <div th:replace="fragments/modal/modifySeminar :: modifySeminar"></div>
-            </div>
-            <div class="col-sm-8">
-                <h3>Current Semiar Title</h3>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Task</th>
-                        <th>Worker</th>
-                        <th>Progress</th>
-                        <th>State</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="task in currentSeminar.tasks">
-                        <td class="center-y">
-                            <a href="#"><span class="center-y">Task Name</span></a>
-                        </td>
-                        <td class="center-y">
-                            <a href="#"><span class="center-y">Task Worker</span></a>
-                        </td>
-                        <td>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuemax="100" aria-valuemin="0"
-                                     aria-valuenow="{{task.progress}}" style="width: 70%;">
-                                    Task Progress%
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <button class="btn btn-success full-width">Completed
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <form role="form">
-                    <div class="form-group">
-                        <label>Add Task</label>
-                        <input type="text" class="form-control" placeholder="New task"/>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
+            <div th:replace="fragments/modal/modifySeminar :: modifySeminar"></div>
         </div>
-        <!--.row-->
-    </section>
-</div>
+        <div class="col-sm-8">
+            <h3>Current Semiar Title</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Worker</th>
+                    <th>Progress</th>
+                    <th>State</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="task in currentSeminar.tasks">
+                    <td class="center-y">
+                        <a href="#"><span class="center-y">Task Name</span></a>
+                    </td>
+                    <td class="center-y">
+                        <a href="#"><span class="center-y">Task Worker</span></a>
+                    </td>
+                    <td>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuemax="100" aria-valuemin="0"
+                                 aria-valuenow="{{task.progress}}" style="width: 70%;">
+                                Task Progress%
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-success full-width">Completed
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <form role="form">
+                <div class="form-group">
+                    <label>Add Task</label>
+                    <input type="text" class="form-control" placeholder="New task"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--.row-->
+</section>
 </body>
 </html>

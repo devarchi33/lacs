@@ -4,6 +4,8 @@ import kr.domaindriven.model.SelectedInstrouctor;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.TestModel.TestModel;
 import kr.domaindriven.service.SeminarService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,19 +14,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jerry on 2016-05-15.
  */
 @Controller
 public class AppsController {
+    private final Logger logger = LoggerFactory.getLogger(AppsController.class);
+    private final String LAYOUT = "layout";
 
     @Autowired
     private SeminarService smService;
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
+        logger.info("Current Seminar page..");
 
         //dummy data
         Seminar firstSeminar = new Seminar("제 1회 정기 세미나");
@@ -40,7 +47,18 @@ public class AppsController {
         Long smCount = smService.count();
         model.addAttribute("smCount", smCount);
 
-        return "index";
+        model.addAttribute("page", "currentSeminar");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "/addSeminar", method = RequestMethod.GET)
+    public String addSeminar(Model model) {
+        logger.info("Add Seminar page..");
+
+        model.addAttribute("page", "addSeminar");
+
+        return LAYOUT;
     }
 
     @RequestMapping(value = "/adding_Instructor", method = RequestMethod.GET)
