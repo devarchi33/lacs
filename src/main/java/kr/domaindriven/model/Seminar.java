@@ -24,6 +24,7 @@ public class Seminar {
     private String title;
     private boolean isCompleted = false;
     private List<Task> tasks;
+    private String date;
 
     /**
      * 기본 태스크를 세미나 객체가 생성될 때 만들어 준다.
@@ -80,5 +81,13 @@ public class Seminar {
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
