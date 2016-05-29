@@ -69,7 +69,12 @@ public class Seminar {
         this.title = title;
     }
 
-    public boolean isCompleted() {
+    /**
+     * 자동 인식을 위해 isCompleted --> getIsCompleted 로 이름 변경.
+     *
+     * @return
+     */
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 

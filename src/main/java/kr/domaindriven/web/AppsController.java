@@ -7,6 +7,9 @@ import kr.domaindriven.service.SeminarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by jerry on 2016-05-15.
@@ -57,6 +58,18 @@ public class AppsController {
         logger.info("Add Seminar page..");
 
         model.addAttribute("page", "addSeminar");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "/allSeminar", method = RequestMethod.GET)
+    public String allSeminar(@PageableDefault Pageable pageable, Model model) {
+        logger.info("All Seminar page..");
+
+        Page<Seminar> seminars = smService.findAll(pageable);
+        model.addAttribute("seminars", seminars);
+
+        model.addAttribute("page", "allSeminar");
 
         return LAYOUT;
     }

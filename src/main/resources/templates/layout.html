@@ -20,6 +20,8 @@
           href="../static/node_modules/admin-lte/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet"/>
     <link th:href="@{/static/node_modules/admin-lte/plugins/datepicker/datepicker3.css}"
           href="../static/node_modules/admin-lte/plugins/datepicker/datepicker3.css" rel="stylesheet"/>
+    <link th:href="@{/static/node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.css}"
+          href="../static/node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet"/>
     <link rel="stylesheet" th:href="@{/static/node_modules/font-awesome/css/font-awesome.min.css}"
           href="/static/node_modules/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" th:href="@{/static/css/index.css}"
@@ -33,6 +35,7 @@
 <div class="content-wrapper" th:switch="${page}">
     <div class="container" th:case="currentSeminar" th:include="fragments/pages/currentSeminar :: currentSeminar"></div>
     <div class="container" th:case="addSeminar" th:include="fragments/pages/addSeminar :: addSeminar"></div>
+    <div class="container" th:case="allSeminar" th:include="fragments/pages/allSeminar :: allSeminar"></div>
 </div>
 
 <footer th:replace="fragments/commons/footer :: footer">&copy;</footer>
@@ -48,6 +51,10 @@
         src="/static/node_modules/admin-lte/plugins/daterangepicker/daterangepicker.js"></script>
 <script th:src="@{/static/node_modules/admin-lte/plugins/datepicker/bootstrap-datepicker.js}"
         src="/static/node_modules/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script th:src="@{/static/node_modules/admin-lte/plugins/datatables/jquery.dataTables.min.js}"
+        src="../static/node_modules/admin-lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script th:src="@{/static/node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.min.js}"
+        src="../static/node_modules/admin-lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script th:src="@{/static/node_modules/admin-lte/dist/js/app.min.js}"
         src="/static/node_modules/admin-lte/dist/js/app.min.js"></script>
 <script th:src="@{/static/js/index.js}"

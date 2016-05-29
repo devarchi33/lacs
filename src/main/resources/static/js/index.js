@@ -4,6 +4,7 @@
 $(document).ready(function () {
     $('input[name="daterange"]').daterangepicker();
     $("#seminarDate").datepicker();
+    $("#seminars").DataTable();
 
     $("#addSeminar").on("click", function () {
         var seminarTitle = $("#seminarTitle").val();
