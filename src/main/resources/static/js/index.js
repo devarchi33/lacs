@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('input[name="daterange"]').daterangepicker();
     $("#seminarDate").datepicker();
     $("#seminars").DataTable();
+    $(".instructor-multiple").select2();
 
     $("#addSeminar").on("click", function () {
         var seminarTitle = $("#seminarTitle").val();
@@ -23,6 +24,8 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     alert(response.title + ", " + response.date + " 저장에 성공하였습니다.");
+                    $("#seminarTitle").attr("placeholder", "ex) 개발자 경력 개발 세미나.");
+                    $("#seminarDate").attr("placeholder", "ex) 05/29/2016");
                 },
                 error: function (error) {
                     console.log("세미나 저장 실패.");

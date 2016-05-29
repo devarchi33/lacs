@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by jerry on 2016-05-15.
  */
@@ -32,7 +29,7 @@ public class AppsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
-        logger.info("Current Seminar page..");
+        logger.info("현재 진행중인 세미나 화면..");
 
         Seminar currentSeminar = smService.findByIsCompleted(false);
 
@@ -48,7 +45,7 @@ public class AppsController {
 
     @RequestMapping(value = "/addSeminar", method = RequestMethod.GET)
     public String addSeminar(Model model) {
-        logger.info("Add Seminar page..");
+        logger.info("세미나 추가 폼 화면..");
 
         model.addAttribute("page", "addSeminar");
 
@@ -57,12 +54,21 @@ public class AppsController {
 
     @RequestMapping(value = "/allSeminar", method = RequestMethod.GET)
     public String allSeminar(@PageableDefault Pageable pageable, Model model) {
-        logger.info("All Seminar page..");
+        logger.info("모든 세미나 리스트 화면..");
 
         Page<Seminar> seminars = smService.findAll(pageable);
         model.addAttribute("seminars", seminars);
 
         model.addAttribute("page", "allSeminar");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
+    public String selectingInstructor(Model model) {
+        logger.info("강사 섭외 상세 화면..");
+
+        model.addAttribute("page", "castingInstructor");
 
         return LAYOUT;
     }

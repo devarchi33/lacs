@@ -24,6 +24,11 @@ public class Task {
      */
     private boolean isCompleted = false;
 
+    /**
+     * th:each 반복자에서 link 를 걸기 위해서 사용한다.
+     */
+    private String requestUrl;
+
     public Task() {
     }
 
@@ -32,8 +37,9 @@ public class Task {
      *
      * @param taskName
      */
-    public Task(String taskName) {
+    public Task(String taskName, String requestUrl) {
         this.taskName = taskName;
+        this.requestUrl = requestUrl;
     }
 
     /**
@@ -75,5 +81,13 @@ public class Task {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    public String getRequestUrl() {
+        return requestUrl;
+    }
+
+    public void setRequestUrl(String requestUrl) {
+        this.requestUrl = requestUrl;
     }
 }
