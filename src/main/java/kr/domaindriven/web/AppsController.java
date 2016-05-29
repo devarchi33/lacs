@@ -34,20 +34,13 @@ public class AppsController {
     public String index(Model model) {
         logger.info("Current Seminar page..");
 
-        //dummy data
-        Seminar firstSeminar = new Seminar("제 1회 정기 세미나", "05/29/2016");
-        Seminar secondSeminar = new Seminar("제 2회 정기 세미나", "06/30/2016");
+        Seminar currentSeminar = smService.findByIsCompleted(false);
 
-        List<Seminar> seminars = new ArrayList<Seminar>();
-        seminars.add(firstSeminar);
-        seminars.add(secondSeminar);
+        if (currentSeminar == null) {
+            currentSeminar = new Seminar("현재 진행중인 세미나가 없습니다.");
+        }
 
-        model.addAttribute("seminars", seminars);
-        //!.dummy data
-
-        Long smCount = smService.count();
-        model.addAttribute("smCount", smCount);
-
+        model.addAttribute("currentSeminar", currentSeminar);
         model.addAttribute("page", "currentSeminar");
 
         return LAYOUT;

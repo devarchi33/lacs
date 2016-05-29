@@ -38,6 +38,16 @@ public class SeminarService implements ISeminarService {
     }
 
     @Override
+    public Seminar findByTitle(String title) {
+        return repository.findByTitle(title);
+    }
+
+    @Override
+    public Seminar findByIsCompleted(boolean isCompleted) {
+        return repository.findByIsCompleted(isCompleted);
+    }
+
+    @Override
     public Long count() {
         return repository.count();
     }

@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class SeminarForm {
 
     @NotNull
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 100)
     private String title;
     @NotNull
     @Size(min = 2)

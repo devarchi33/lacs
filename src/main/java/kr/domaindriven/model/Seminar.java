@@ -26,6 +26,18 @@ public class Seminar {
     private List<Task> tasks;
     private String date;
 
+    public Seminar() {
+    }
+
+    /**
+     * 현재 진행중인 세미나가 없을 경우의 생성자.
+     *
+     * @param title
+     */
+    public Seminar(String title) {
+        this.title = title;
+    }
+
     /**
      * 기본 태스크를 세미나 객체가 생성될 때 만들어 준다.
      * 기본 테스크 : 강사 선정, 장소예약, 포스터 제작, 홍보, 회고.

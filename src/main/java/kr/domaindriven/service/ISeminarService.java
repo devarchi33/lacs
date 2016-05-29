@@ -13,5 +13,9 @@ public interface ISeminarService {
 
     Page<Seminar> findAll(Pageable pageable);
 
+    Seminar findByTitle(String title);
+
+    Seminar findByIsCompleted(boolean isCompleted);
+
     Long count();
 }
