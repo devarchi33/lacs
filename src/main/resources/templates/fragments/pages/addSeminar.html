@@ -27,23 +27,30 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="seminarTitle">세미나 타이틀</label>
-                        <input type="text" class="form-control" placeholder="ex) 개발자 경력 개발 세미나." id="seminarTitle"/>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="ex) 개발자 경력 개발 세미나." id="seminarTitle"/>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="datepicker">세미나 예정일</label>
+                        <label for="seminarDate">세미나 예정일</label>
                         <div class="input-group date">
                             <div class="input-group-addon">
                                 <i class="fa fa-calendar"></i>
                             </div>
-                            <input type="text" class="form-control pull-right" id="datepicker"/>
+                            <input type="text" class="form-control pull-right" placeholder=" ex) 05/29/2016"
+                                   id="seminarDate"/>
                         </div>
                         <!-- /.input group -->
                     </div>
                 </div>
                 <div class="box-footer">
                     <div class="form-group row">
-                        <div class="col-sm-offset-2">
-                            <button type="submit" class="btn btn-secondary">Sign in</button>
+                        <div class="col-sm-offset-1">
+                            <button type="button" class="btn btn-primary" id="addSeminar">등록</button>
+                            <button type="reset" class="btn btn-secondary">리셋</button>
                         </div>
                     </div>
                 </div>

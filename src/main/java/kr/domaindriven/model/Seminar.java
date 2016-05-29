@@ -31,9 +31,11 @@ public class Seminar {
      * 기본 테스크 : 강사 선정, 장소예약, 포스터 제작, 홍보, 회고.
      *
      * @param title
+     * @param date
      */
-    public Seminar(String title) {
+    public Seminar(String title, String date) {
         this.title = title;
+        this.date = date;
 
         Task selectInstructor = new Task(LacsCnst.SELECT_INSTRUCTOR);
         Task reservePlace = new Task(LacsCnst.RESERVE_PLACE);

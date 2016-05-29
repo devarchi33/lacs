@@ -34,8 +34,8 @@ public class AppsController {
         logger.info("Current Seminar page..");
 
         //dummy data
-        Seminar firstSeminar = new Seminar("제 1회 정기 세미나");
-        Seminar secondSeminar = new Seminar("제 2회 정기 세미나");
+        Seminar firstSeminar = new Seminar("제 1회 정기 세미나", "05/29/2016");
+        Seminar secondSeminar = new Seminar("제 2회 정기 세미나", "06/30/2016");
 
         List<Seminar> seminars = new ArrayList<Seminar>();
         seminars.add(firstSeminar);
