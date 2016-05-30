@@ -9,3 +9,4 @@
 
 ### Sample Data Import
 * cd sample_data && mongoimport --db lacs --collection seminars --file seminars.json
+* mongoimport --db lacs --collection instructor --file instructor.json

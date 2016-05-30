@@ -14,7 +14,7 @@ function getSelectValue()
 //AJAX를 사용한 강사연락처 가져오기 기능
 function loadDoc() {
     var target = document.getElementById("selectedInstructor");
-    alert("Start"+target.selectedIndex)
+    /*alert("Start"+target.selectedIndex)*/
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (xhttp.readyState == 4 && xhttp.status == 200) {

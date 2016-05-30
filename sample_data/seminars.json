@@ -1,3 +1,123 @@
-{"_id":{"$oid":"574ad7aaf7e4073ec0c6f756"},"_class":"kr.domaindriven.model.Seminar","title":"쉽고도 어려운 알파고 와 머신러닝 이야기","isCompleted":true,"tasks":[{"taskName":"강사 선정","progress":0,"isCompleted":false},{"taskName":"장소 예약","progress":0,"isCompleted":false},{"taskName":"포스터 제작","progress":0,"isCompleted":false},{"taskName":"세미나 등록","progress":0,"isCompleted":false},{"taskName":"홍보","progress":0,"isCompleted":false},{"taskName":"회고","progress":0,"isCompleted":false}],"date":"05/04/2016"}
-{"_id":{"$oid":"574ad7bef7e4073ec0c6f757"},"_class":"kr.domaindriven.model.Seminar","title":"Go 프로그래밍 소개","isCompleted":false,"tasks":[{"taskName":"강사 선정","progress":0,"isCompleted":false},{"taskName":"장소 예약","progress":0,"isCompleted":false},{"taskName":"포스터 제작","progress":0,"isCompleted":false},{"taskName":"세미나 등록","progress":0,"isCompleted":false},{"taskName":"홍보","progress":0,"isCompleted":false},{"taskName":"회고","progress":0,"isCompleted":false}],"date":"05/10/2016"}
-{"_id":{"$oid":"574ad849f7e4073ec0c6f758"},"_class":"kr.domaindriven.model.Seminar","title":"성공하는 스타트업의 프로세스 개선기 \u0026 spring statemachine","isCompleted":true,"tasks":[{"taskName":"강사 선정","progress":0,"isCompleted":false},{"taskName":"장소 예약","progress":0,"isCompleted":false},{"taskName":"포스터 제작","progress":0,"isCompleted":false},{"taskName":"세미나 등록","progress":0,"isCompleted":false},{"taskName":"홍보","progress":0,"isCompleted":false},{"taskName":"회고","progress":0,"isCompleted":false}],"date":"03/31/2016"}
+{
+  "_id": {
+    "$oid": "574ad7aaf7e4073ec0c6f756"
+  },
+  "_class": "kr.domaindriven.model.Seminar",
+  "title": "쉽고도 어려운 알파고 와 머신러닝 이야기",
+  "isCompleted": true,
+  "tasks": [
+    {
+      "taskName": "강사 선정",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "장소 예약",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "포스터 제작",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "세미나 등록",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "홍보",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "회고",
+      "progress": 0,
+      "isCompleted": false
+    }
+  ],
+  "date": "05/04/2016"
+}
+{
+  "_id": {
+    "$oid": "574ad7bef7e4073ec0c6f757"
+  },
+  "_class": "kr.domaindriven.model.Seminar",
+  "title": "Go 프로그래밍 소개",
+  "isCompleted": false,
+  "tasks": [
+    {
+      "taskName": "강사 선정",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "장소 예약",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "포스터 제작",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "세미나 등록",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "홍보",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "회고",
+      "progress": 0,
+      "isCompleted": false
+    }
+  ],
+  "date": "05/10/2016"
+}
+{
+  "_id": {
+    "$oid": "574ad849f7e4073ec0c6f758"
+  },
+  "_class": "kr.domaindriven.model.Seminar",
+  "title": "성공하는 스타트업의 프로세스 개선기 \u0026 spring statemachine",
+  "isCompleted": true,
+  "tasks": [
+    {
+      "taskName": "강사 선정",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "장소 예약",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "포스터 제작",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "세미나 등록",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "홍보",
+      "progress": 0,
+      "isCompleted": false
+    },
+    {
+      "taskName": "회고",
+      "progress": 0,
+      "isCompleted": false
+    }
+  ],
+  "date": "03/31/2016"
+}

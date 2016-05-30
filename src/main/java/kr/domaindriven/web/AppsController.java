@@ -1,8 +1,11 @@
 package kr.domaindriven.web;
 
+import kr.domaindriven.model.Instructor;
 import kr.domaindriven.model.SelectedInstrouctor;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.TestModel.TestModel;
+import kr.domaindriven.persistance.InstructorRepository;
+import kr.domaindriven.persistance.SeminarRepository;
 import kr.domaindriven.service.SeminarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,9 +76,15 @@ public class AppsController {
         return LAYOUT;
     }
 
+    @Autowired
+    private InstructorRepository repository;
+
     @RequestMapping(value = "/adding_Instructor", method = RequestMethod.GET)
-    public String addInstructor(Model model) {
+    public String addInstructor(@PageableDefault Pageable pageable,Model model) {
         TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
+        logger.info("강사 추가 화면..");
+        /*Instructor instructor = repository.findByName("구강원");
+        System.out.println(instructor.getName());*/
         SelectedInstrouctor selectedInstrouctor = new SelectedInstrouctor("1회 세미나", testModel.getWorkers(), testModel.getInstructors());
         model.addAttribute("selectedInstrouctor", selectedInstrouctor);
         return "addingInstructor";
