@@ -1,5 +1,4 @@
 {
-  "id": 1,
   "name": "구강원",
   "phoneNumber": "010-1111-1111",
   "mail": "kkw@domaindriven.kr",
@@ -7,7 +6,6 @@
 }
 
 {
-  "id": 2,
   "name": "김형준",
   "phoneNumber": "010-2222-2222",
   "mail": "kkw@domaindriven.kr",
@@ -15,7 +13,6 @@
 }
 
 {
-  "id": 3,
   "name": "이동근",
   "phoneNumber": "010-3333-3333",
   "mail": "kkw@domaindriven.kr",
@@ -23,7 +20,6 @@
 }
 
 {
-  "id": 4,
   "name": "장제휴",
   "phoneNumber": "010-4444-4444",
   "mail": "kkw@domaindriven.kr",

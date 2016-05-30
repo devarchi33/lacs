@@ -1,6 +1,8 @@
 package kr.domaindriven;
 
 import kr.domaindriven.config.LacsProperties;
+import kr.domaindriven.model.Instructor;
+import kr.domaindriven.persistance.InstructorRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

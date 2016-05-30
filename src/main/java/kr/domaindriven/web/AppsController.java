@@ -5,7 +5,6 @@ import kr.domaindriven.model.SelectedInstrouctor;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.TestModel.TestModel;
 import kr.domaindriven.persistance.InstructorRepository;
-import kr.domaindriven.persistance.SeminarRepository;
 import kr.domaindriven.service.SeminarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +18,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.List;
+
 /**
  * Created by jerry on 2016-05-15.
  */
@@ -26,6 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AppsController {
     private final Logger logger = LoggerFactory.getLogger(AppsController.class);
     private final String LAYOUT = "layout";
+
+    //// TODO: 2016-05-30 추후 Service로 재 작업 요망 - jerry
+    @Autowired
+    private InstructorRepository instructorRepository;
 
     @Autowired
     private SeminarService smService;
@@ -76,16 +81,14 @@ public class AppsController {
         return LAYOUT;
     }
 
-    @Autowired
-    private InstructorRepository repository;
 
     @RequestMapping(value = "/adding_Instructor", method = RequestMethod.GET)
-    public String addInstructor(@PageableDefault Pageable pageable,Model model) {
+    public String addInstructor(Model model) {
         TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
         logger.info("강사 추가 화면..");
-        /*Instructor instructor = repository.findByName("구강원");
-        System.out.println(instructor.getName());*/
-        SelectedInstrouctor selectedInstrouctor = new SelectedInstrouctor("1회 세미나", testModel.getWorkers(), testModel.getInstructors());
+        //// TODO: 2016-05-30 Worker DB 연동작업 필요 - jerry 
+        List<Instructor> instructors = instructorRepository.findAll();
+        SelectedInstrouctor selectedInstrouctor = new SelectedInstrouctor("1회 세미나", testModel.getWorkers(), instructors);
         model.addAttribute("selectedInstrouctor", selectedInstrouctor);
         return "addingInstructor";
     }
