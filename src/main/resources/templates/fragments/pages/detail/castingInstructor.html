@@ -34,10 +34,9 @@
                                     data-placeholder="강사 이름" style="width: 100%;" tabindex="-1"
                                     aria-hidden="true"
                                     id="select-instructor">
-                                <option>구강원 책임</option>
-                                <option>김형준 님</option>
-                                <option>이동근 님</option>
-                                <option>장제휴 님</option>
+                                <option th:each="instructor : instructors">
+                                    <span th:text="${instructor.name}">세미나 강사</span>
+                                </option>
                             </select>
                         </div>
                         <!-- /.form-group -->
