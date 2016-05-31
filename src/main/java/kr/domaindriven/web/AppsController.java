@@ -103,13 +103,9 @@ public class AppsController {
 
         //// TODO: instructorService 가 추가되면 변경하기. - donghoon.
         List<Instructor> instructors = instructorRepository.findAll();
-
-        model.addAttribute("page", "castingInstructor");
         model.addAttribute("instructors", instructors);
 
-        for (Instructor instructor : instructors) {
-            logger.info("Name: " + instructor.getName());
-        }
+        model.addAttribute("page", "castingInstructor");
 
         return LAYOUT;
     }

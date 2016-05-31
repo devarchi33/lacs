@@ -34,7 +34,7 @@
                                     data-placeholder="강사 이름" style="width: 100%;" tabindex="-1"
                                     aria-hidden="true"
                                     id="select-instructor">
-                                <option th:each="instructor : instructors">
+                                <option th:each="instructor : ${instructors}">
                                     <span th:text="${instructor.name}">세미나 강사</span>
                                 </option>
                             </select>
