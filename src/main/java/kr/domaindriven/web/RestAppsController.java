@@ -16,8 +16,13 @@ import java.util.Map;
 @RestController
 public class RestAppsController {
     @RequestMapping(value = "findInstructorsPhoneNumber", method = RequestMethod.POST)
-    public String instructor(@RequestBody String indexNum){
+    public String instructor(@RequestBody String indexNum) {
         int tempIndexnum = Integer.parseInt(indexNum) - 1;
         return new TestModel().getInstructors().get(tempIndexnum).getPhoneNumber();
+    }
+
+    @RequestMapping("/test")
+    public String test(String name) {
+        return "Return: " + name;
     }
 }

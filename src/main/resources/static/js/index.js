@@ -5,7 +5,11 @@ $(document).ready(function () {
     $('input[name="daterange"]').daterangepicker();
     $("#seminarDate").datepicker();
     $("#seminars").DataTable();
-    $(".instructor-multiple").select2();
+    $(".instructor-multiple").select2({
+        maximumSelectionLength: 1
+    }).on("change", function () {
+        alert($("select#select-instructor").val());
+    });
     $("#workers").DataTable();
     $("#workerPhone").inputmask("999-9999-9999");
 
