@@ -16,12 +16,12 @@ public class Worker {
     @Id
     private String id;
     private String name;
-    private String phoneNumber;
+    private String phone;
     private String email;
 
-    public Worker(String name, String phoneNumber, String email) {
+    public Worker(String name, String phone, String email) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+        this.phone = phone;
         this.email = email;
     }
 
@@ -37,12 +37,12 @@ public class Worker {
         this.name = name;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {

@@ -6,6 +6,7 @@ $(document).ready(function () {
     $("#seminarDate").datepicker();
     $("#seminars").DataTable();
     $(".instructor-multiple").select2();
+    $("#workers").DataTable();
     $("#workerPhone").inputmask("999-9999-9999");
 
     $("#addSeminar").on("click", function () {

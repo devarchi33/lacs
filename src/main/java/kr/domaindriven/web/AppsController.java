@@ -4,8 +4,10 @@ import kr.domaindriven.model.Instructor;
 import kr.domaindriven.model.SelectedInstrouctor;
 import kr.domaindriven.model.Seminar;
 import kr.domaindriven.model.TestModel.TestModel;
+import kr.domaindriven.model.Worker;
 import kr.domaindriven.persistance.InstructorRepository;
 import kr.domaindriven.service.SeminarService;
+import kr.domaindriven.service.WorkerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,8 @@ public class AppsController {
 
     @Autowired
     private SeminarService smService;
+    @Autowired
+    private WorkerService wkService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
@@ -77,6 +81,18 @@ public class AppsController {
         logger.info("운영진 추가 폼 화면..");
 
         model.addAttribute("page", "addWorker");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "/allWorker", method = RequestMethod.GET)
+    public String allWorker(@PageableDefault Pageable pageable, Model model) {
+        logger.info("모든 운영진 리스트 화면..");
+
+        Page<Worker> workers = wkService.findAll(pageable);
+        model.addAttribute("workers", workers);
+
+        model.addAttribute("page", "allWorker");
 
         return LAYOUT;
     }
