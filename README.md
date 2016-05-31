@@ -8,5 +8,6 @@
 * ./install_mongodb.sh
 
 ### Sample Data Import
-* cd sample_data && mongoimport --db lacs --collection seminars --file seminars.json
-* mongoimport --db lacs --collection instructor --file instructor.json
+* mongoimport --db lacs --collection seminars --file sample_data/seminars.json
+* mongoimport --db lacs --collection instructor --file sample_data/instructor.json
+* mongoimport --db lacs --collection workers --file sample_data/workers.json
