@@ -52,7 +52,7 @@ public class AppsController {
     }
 
     @RequestMapping(value = "/addSeminar", method = RequestMethod.GET)
-    public String addSeminar(Model model) {
+    public String addSeminarForm(Model model) {
         logger.info("세미나 추가 폼 화면..");
 
         model.addAttribute("page", "addSeminar");
@@ -68,6 +68,15 @@ public class AppsController {
         model.addAttribute("seminars", seminars);
 
         model.addAttribute("page", "allSeminar");
+
+        return LAYOUT;
+    }
+
+    @RequestMapping(value = "/addWorker", method = RequestMethod.GET)
+    public String addInstructorForm(Model model) {
+        logger.info("운영진 추가 폼 화면..");
+
+        model.addAttribute("page", "addWorker");
 
         return LAYOUT;
     }

@@ -11,14 +11,14 @@ import java.util.List;
  * 기본 작업진행자 및 강사정보 제공을 위한 클래스
  */
 public class TestModel {
-    private  List<Worker> workers = new ArrayList<Worker>();
+    private List<Worker> workers = new ArrayList<Worker>();
 
-    private  List<Instructor> instructors = new ArrayList<Instructor>();
+    private List<Instructor> instructors = new ArrayList<Instructor>();
 
     public TestModel() {
-        workers.add(new Worker("안재열"));
-        workers.add(new Worker("이동훈"));
-        workers.add(new Worker("박세종"));
+        workers.add(new Worker("안재열", "010-2222-2222", "hello2@domaindriven.co.kr"));
+        workers.add(new Worker("이동훈", "010-2222-2222", "hello2@domaindriven.co.kr"));
+        workers.add(new Worker("박세종", "010-2222-2222", "hello2@domaindriven.co.kr"));
 
         instructors.add(new Instructor("강사1", "010-1111-1111", "hello1@domaindriven.co.kr"));
         instructors.add(new Instructor("강사2", "010-2222-2222", "hello2@domaindriven.co.kr"));
@@ -29,6 +29,7 @@ public class TestModel {
     public List<Worker> getWorkers() {
         return workers;
     }
+
     public void setWorkers(List<Worker> workers) {
         this.workers = workers;
     }
@@ -36,6 +37,7 @@ public class TestModel {
     public List<Instructor> getInstructors() {
         return instructors;
     }
+
     public void setInstructors(List<Instructor> instructors) {
         this.instructors = instructors;
     }
