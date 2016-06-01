@@ -18,7 +18,9 @@ public class SeminarService implements ISeminarService {
     @Autowired
     private SeminarRepository repository;
 
-
+    public SeminarService(){
+        System.out.println("2222222222222");
+    }
     /**
      * mongodb save 함수는 upsert 로 동작한다.
      *
@@ -41,9 +43,11 @@ public class SeminarService implements ISeminarService {
     public Seminar findByTitle(String title) {
         return repository.findByTitle(title);
     }
-
+//// TODO: 2016-06-01 여기서부터 URL을 가져오지 못함. - 재열 
     @Override
     public Seminar findByIsCompleted(boolean isCompleted) {
+        System.out.println("33333333333");
+        System.out.println("@@@@333333@@@@@@@@@@@"+repository.findByIsCompleted(isCompleted).getTasks().get(1).getRequestUrl());
         return repository.findByIsCompleted(isCompleted);
     }
 

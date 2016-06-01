@@ -27,27 +27,6 @@ public class Seminar {
     private String date;
 
     public Seminar() {
-    }
-
-    /**
-     * 현재 진행중인 세미나가 없을 경우의 생성자.
-     *
-     * @param title
-     */
-    public Seminar(String title) {
-        this.title = title;
-    }
-
-    /**
-     * 기본 태스크를 세미나 객체가 생성될 때 만들어 준다.
-     * 기본 테스크 : 강사 섭외, 장소예약, 포스터 제작, 홍보, 회고.
-     *
-     * @param title
-     * @param date
-     */
-    public Seminar(String title, String date) {
-        this.title = title;
-        this.date = date;
 
         Task selectInstructor = new Task(LacsCnst.CAST_INSTRUCTOR, LacsCnst.CAST_INSTRUCTOR_URL);
         Task reservePlace = new Task(LacsCnst.RESERVE_PLACE, LacsCnst.RESERVE_PLACE_URL);
@@ -59,14 +38,40 @@ public class Seminar {
         /**
          * 고정적 으로 예상되는 task 들을 Seminar 생성시 할당한다.
          */
-        List<Task> taskMap = new ArrayList<Task>();
-        taskMap.add(selectInstructor);
-        taskMap.add(reservePlace);
-        taskMap.add(makePoster);
-        taskMap.add(registerSeminar);
-        taskMap.add(promostion);
-        taskMap.add(rememberance);
-        this.tasks = taskMap;
+        List<Task> taskList = new ArrayList<Task>();
+        taskList.add(selectInstructor);
+        taskList.add(reservePlace);
+        taskList.add(makePoster);
+        taskList.add(registerSeminar);
+        taskList.add(promostion);
+        taskList.add(rememberance);
+        this.tasks = taskList;
+
+        System.out.println("111111111111111111");
+        System.out.println("@@@@@@@@@@@@@@@"+taskList.get(1).getRequestUrl());
+    }
+
+    /**
+     * 현재 진행중인 세미나가 없을 경우의 생성자.
+     *
+     * @param title
+     */
+    public Seminar(String title) {
+        this();
+        this.title = title;
+    }
+
+    /**
+     * 기본 태스크를 세미나 객체가 생성될 때 만들어 준다.
+     * 기본 테스크 : 강사 섭외, 장소예약, 포스터 제작, 홍보, 회고.
+     *
+     * @param title
+     * @param date
+     */
+    public Seminar(String title, String date) {
+        this();
+        this.title = title;
+        this.date = date;
     }
 
     public String getId() {

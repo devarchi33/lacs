@@ -43,12 +43,13 @@ public class AppsController {
     public String index(Model model) {
         logger.info("현재 진행중인 세미나 화면..");
 
-        Seminar currentSeminar = smService.findByIsCompleted(false);
+       // Seminar currentSeminar = smService.findByIsCompleted(false);
+        Seminar currentSeminar = new Seminar();
+
 
         if (currentSeminar == null) {
             currentSeminar = new Seminar("현재 진행중인 세미나가 없습니다.");
         }
-
         model.addAttribute("currentSeminar", currentSeminar);
         model.addAttribute("page", "currentSeminar");
 
@@ -97,7 +98,7 @@ public class AppsController {
         return LAYOUT;
     }
 
-    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
     public String selectingInstructor(Model model) {
         logger.info("강사 섭외 상세 화면..");
 
@@ -108,10 +109,10 @@ public class AppsController {
         model.addAttribute("page", "castingInstructor");
 
         return LAYOUT;
-    }
+    }*/
 
 
-    @RequestMapping(value = "/adding_Instructor", method = RequestMethod.GET)
+    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
     public String addInstructor(Model model) {
         TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
         logger.info("강사 추가 화면..");
@@ -122,7 +123,7 @@ public class AppsController {
         return "addingInstructor";
     }
 
-    @RequestMapping(value = "/adding_Instructor", method = RequestMethod.POST)
+    @RequestMapping(value = "/castingInstructor", method = RequestMethod.POST)
     public String addInstructor(@ModelAttribute SelectedInstrouctor selectingInstrouctor, Model model) {
         SelectedInstrouctor selectedInstrouctor = selectingInstrouctor;
         model.addAttribute("selectingInstrouctor", selectedInstrouctor);
