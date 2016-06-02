@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Created by jerry on 2016-05-18.
  * 이 클래스는 강사를 위해 만들었음
  */
-@Document(collection = "instructor")
+@Document(collection = "instructors")
 public class Instructor {
 
     @Id

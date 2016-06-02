@@ -1,11 +1,11 @@
 package kr.domaindriven.web;
 
 import kr.domaindriven.model.Instructor;
-import kr.domaindriven.model.SelectedInstrouctor;
+import kr.domaindriven.model.SelectedInstructorForm;
 import kr.domaindriven.model.Seminar;
-import kr.domaindriven.model.TestModel.TestModel;
 import kr.domaindriven.model.Worker;
 import kr.domaindriven.persistance.InstructorRepository;
+import kr.domaindriven.service.InstructorService;
 import kr.domaindriven.service.SeminarService;
 import kr.domaindriven.service.WorkerService;
 import org.slf4j.Logger;
@@ -36,8 +36,13 @@ public class AppsController {
 
     @Autowired
     private SeminarService smService;
+
     @Autowired
     private WorkerService wkService;
+
+    @Autowired
+    private InstructorService instructorService;
+
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
@@ -98,13 +103,13 @@ public class AppsController {
     }
 
     @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
-    public String selectingInstructor(Model model) {
+    public String selectingInstructor(@PageableDefault Pageable pageable, Model model) {
         logger.info("강사 섭외 상세 화면..");
-        //// TODO: 2016-05-30 Worker DB 연동작업 필요 - jerry
-        TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
-        //List<Instructor> instructors = instructorRepository.findAll();
-        List<Instructor> instructors = instructorRepository.findAll();
-        SelectedInstrouctor selectedInstrouctor = new SelectedInstrouctor("1회 세미나", testModel.getWorkers(), instructors);
+       // TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
+        String currentSeminarTitle = smService.findByIsCompleted(false).getTitle(); // 현재 진행중인 세미나 이름
+        Page<Instructor> instructors = instructorService.findAll(pageable);
+        Page<Worker> workers = wkService.findAll(pageable);
+        SelectedInstructorForm selectedInstrouctor = new SelectedInstructorForm(currentSeminarTitle, workers.getContent(), instructors.getContent());
         model.addAttribute("selectedInstrouctor", selectedInstrouctor);
         model.addAttribute("instructors", instructors);
         model.addAttribute("page", "castingInstructor");
@@ -113,9 +118,9 @@ public class AppsController {
     }
 
     @RequestMapping(value = "/castingInstructor", method = RequestMethod.POST)
-    public String addInstructor(@ModelAttribute SelectedInstrouctor selectingInstrouctor, Model model) {
-        SelectedInstrouctor selectedInstrouctor = selectingInstrouctor;
-        model.addAttribute("selectingInstrouctor", selectedInstrouctor);
+    public String addInstructor(@ModelAttribute SelectedInstructorForm SelectedInstructorForm, Model model) {
+        SelectedInstructorForm selectedInstrouctor = SelectedInstructorForm;
+        model.addAttribute("selectedInstrouctor", selectedInstrouctor);
         return "seminarInstructor";
     }
 

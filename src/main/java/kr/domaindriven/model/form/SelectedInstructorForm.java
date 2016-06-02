@@ -7,7 +7,7 @@ import java.util.List;
  * 강사섭외 작업을 위한 클래스.
  * Task를 상속받으며 강사섭외작업에 대한 정보를 제공한다.
  */
-public class SelectedInstrouctor extends Task {
+public class SelectedInstructorForm extends Task {
 
     private List<Instructor> instructors;
 
@@ -22,11 +22,11 @@ public class SelectedInstrouctor extends Task {
     private String date;
     private String file;
 
-    public SelectedInstrouctor() {
+    public SelectedInstructorForm() {
         super();
     }
 
-    public SelectedInstrouctor(String name, List<Worker> workers, List<Instructor> instructors) {
+    public SelectedInstructorForm(String name, List<Worker> workers, List<Instructor> instructors) {
         super(name, workers);
         this.instructors = instructors;
     }
