@@ -46,9 +46,6 @@ public class Seminar {
         taskList.add(promostion);
         taskList.add(rememberance);
         this.tasks = taskList;
-
-        System.out.println("111111111111111111");
-        System.out.println("@@@@@@@@@@@@@@@"+taskList.get(1).getRequestUrl());
     }
 
     /**

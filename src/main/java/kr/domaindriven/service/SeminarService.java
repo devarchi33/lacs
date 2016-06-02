@@ -19,7 +19,6 @@ public class SeminarService implements ISeminarService {
     private SeminarRepository repository;
 
     public SeminarService(){
-        System.out.println("2222222222222");
     }
     /**
      * mongodb save 함수는 upsert 로 동작한다.

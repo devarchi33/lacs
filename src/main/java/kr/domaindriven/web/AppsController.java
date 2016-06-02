@@ -43,8 +43,7 @@ public class AppsController {
     public String index(Model model) {
         logger.info("현재 진행중인 세미나 화면..");
 
-       // Seminar currentSeminar = smService.findByIsCompleted(false);
-        Seminar currentSeminar = new Seminar();
+        Seminar currentSeminar = smService.findByIsCompleted(false);
 
 
         if (currentSeminar == null) {
@@ -98,29 +97,19 @@ public class AppsController {
         return LAYOUT;
     }
 
-/*    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
+    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
     public String selectingInstructor(Model model) {
         logger.info("강사 섭외 상세 화면..");
-
-        //// TODO: instructorService 가 추가되면 변경하기. - donghoon.
-        List<Instructor> instructors = instructorRepository.findAll();
-        model.addAttribute("instructors", instructors);
-
-        model.addAttribute("page", "castingInstructor");
-
-        return LAYOUT;
-    }*/
-
-
-    @RequestMapping(value = "/castingInstructor", method = RequestMethod.GET)
-    public String addInstructor(Model model) {
+        //// TODO: 2016-05-30 Worker DB 연동작업 필요 - jerry
         TestModel testModel = new TestModel(); //test 데이터 입력을 위한 TestModel
-        logger.info("강사 추가 화면..");
-        //// TODO: 2016-05-30 Worker DB 연동작업 필요 - jerry 
+        //List<Instructor> instructors = instructorRepository.findAll();
         List<Instructor> instructors = instructorRepository.findAll();
         SelectedInstrouctor selectedInstrouctor = new SelectedInstrouctor("1회 세미나", testModel.getWorkers(), instructors);
         model.addAttribute("selectedInstrouctor", selectedInstrouctor);
-        return "addingInstructor";
+        model.addAttribute("instructors", instructors);
+        model.addAttribute("page", "castingInstructor");
+
+        return LAYOUT;
     }
 
     @RequestMapping(value = "/castingInstructor", method = RequestMethod.POST)
